@@ -2,13 +2,8 @@
 // You should implement your task here.
 
 module.exports = function towelSort (matrix) {
-   let arr = []
-   if(matrix !== undefined) {
-    for(let i = 0; i < matrix.length; i++){
-      if(i % 2) matrix[i].reverse();
-        for(let j = 0; j < matrix[i].length; j++){
-            arr.push(matrix[i][j]);
-        }
-     }}
-    return arr;
+   return matrix === undefined || matrix.length === 0 ? [] :
+     matrix.map(function(curr, ind) 
+     {return ind % 2 === 1 ? curr.reverse() : curr}).join(",").split(",")
+     .map(function(curr) {return isNaN(curr) ? curr : Number(curr)});
 }
